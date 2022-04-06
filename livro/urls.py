@@ -11,5 +11,4 @@ urlpatterns = [
    path('livros_confirm_delete/<int:pk>/', views.livros_confirm_delete.as_view(), name='livros_confirm_delete'),
 
 
-
 ]

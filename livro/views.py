@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Livro
 from .forms import LivrosModelForm

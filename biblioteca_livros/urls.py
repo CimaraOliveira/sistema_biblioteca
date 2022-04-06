@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from livro.service_livro import listarLivro
+
+router = routers.DefaultRouter()
+router.register(r'livro', listarLivro)
+
+#http://127.0.0.1:8000/api/ caminho da api
 
 urlpatterns = [  
     path('admin/', admin.site.urls),
-    path('', include('livro.urls')),  
+    path('', include('livro.urls')),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls'))
 ]
