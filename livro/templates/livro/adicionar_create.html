@@ -1,0 +1,43 @@
+{% load crispy_forms_tags %}
+<h1>
+    <center>Cadastro de Livro</center>
+</h1>
+
+<center>
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <input type="hidden" value="{{livro.id}}" name="livro_id">
+        <p>
+            <label>Nome do livro:</label>
+            <input style="width: 40%;" class="form-control" type="text" value="{{livro.nome}}" name="nome">
+        </p>
+
+
+        <p>
+            <label>Autor:</label>
+            <input style="width: 40%;" class="form-control" type="text" value="{{livro.autor}}" name="autor">
+        </p>
+
+        <p>
+            <label>Co-autor:</label>
+            <input style="width: 40%;" class="form-control" type="text" value="{{livro.co_autor}}" name="co_autor">
+        </p>
+
+        <p>
+            <label>Editora:</label>
+            <input style="width: 40%;" class="form-control" type="text" value="{{livro.editora}}" name="editora">
+        </p>
+
+        <p>
+            <label>ISBN:</label>
+            <input style="width: 40%;" class="form-control" type="text" value="{{livro.isbn}}" name="isbn">
+        </p>
+
+        <br/>
+
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+</center>

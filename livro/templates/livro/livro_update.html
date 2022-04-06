@@ -1,0 +1,8 @@
+{% load crispy_forms_tags %}
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br/>
+    <button type="submit">Alterar Dados</button>
+
+</form>
