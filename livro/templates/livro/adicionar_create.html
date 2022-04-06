@@ -1,41 +1,51 @@
-{% load crispy_forms_tags %}
-<h1>
-    <center>Cadastro de Livro</center>
-</h1>
+{% extends 'base.html' %}
 
-<center>
-    <form method="post" action="">
-        {% csrf_token %}
+{%block conteudo %}
+<body>
+{% include 'parciais/_messages.html' %}
 
-        <input type="hidden" value="{{livro.id}}" name="livro_id">
-        <p>
-            <label>Nome do livro:</label>
-          <input style="width: 40%;" class="form-control" type="text" value="{{livro.nome}}" name="nome">
-        </p>
-        <p>
-            <label>Autor:</label>
-           <input style="width: 40%;" class="form-control" type="text" value="{{livro.autor}}" name="autor">
-        </p>
+<div class="card card-register">
 
-        <p>
-            <label>Co-autor:</label>
-            <input style="width: 40%;" class="form-control" type="text" value="{{livro.co_autor}}" name="co_autor">
-        </p>
+    <div class="card-header">Cadastro de Livro</div>
 
-        <p>
-            <label>Editora:</label>
-            <input style="width: 40%;" class="form-control" type="text" value="{{livro.editora}}" name="editora">
-        </p>
+    <div class="card-body">
+        <form method="post" action="">
+            {% csrf_token %}
 
-        <p>
-            <label>ISBN:</label>
-            <input style="width: 40%;" class="form-control" type="text" value="{{livro.isbn}}" name="isbn">
-        </p>
-
-        <br/>
+            <input type="hidden" value="{{livro.id}}" name="livro_id">
+            <div class="form-group col-md-12">
+                <label>Nome do livro:</label>
+                <input class="form-control" type="text" value="{{livro.nome}}" name="nome" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Autor:</label>
+                <input class="form-control" type="text" value="{{livro.autor}}" name="autor">
+            </div>
 
 
-        <button type="submit">Cadastrar</button>
+            <div class="form-group col-md-12">
+                <label>Editora:</label>
+                <input class="form-control" type="text" value="{{livro.editora}}" name="editora">
+            </div>
 
-    </form>
-</center>
+            <div class="form-group col-md-12">
+                <label>ISBN:</label>
+                <input class="form-control" type="text" value="{{livro.isbn}}" name="isbn">
+            </div>
+
+            <br/>
+
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+        </form>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+</body>
+
+{% endblock %}

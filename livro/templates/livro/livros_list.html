@@ -1,43 +1,69 @@
-<h1>Lista de Livros Cadastrados</h1>
+{% extends 'base.html' %}
+{% block conteudo %}
 
 
-<table class="table">
-    <thead>
-    <tr>
+<body>
+        <div class="navbar-wrapper header">
+            <br/>
+        </div>
 
-        <th scope="col">Nome</th>
-        <th scope="col">Autor</th>
-       <th scope="col">Editora</th>
-        <th scope="col">Isbn</th>
-        <th scope="col">Ação</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for livro in object_list %}
-    <tr>
+        <div class="row">
+            <div class="col-md-30">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Lista de Livros</h4>
 
-        <td>{{ livro.nome }}</td>
+                    </div>
+                    {% include 'parciais/_messages.html' %}
+                    <div class="table">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Autor</th>
+                                <th>Editora</th>
+                                <th>ISBN</th>
+                                <th>Ação</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for livro in object_list %}
+                            <tr>
+                                <td>{{ livro.id }}</td>
 
-        <td>{{ livro.autor }}</td>
+                                <td>{{ livro.nome }}</td>
 
-        <td>{{ livro.editora }}</td>
+                                <td>{{ livro.autor }}</td>
 
-        <td>{{ livro.isbn }}</td>
+                                <td>{{ livro.editora }}</td>
 
-        <th></th>
+                                <td>{{ livro.isbn }}</td>
 
-        <td>
-            <a class="btn btn-info" href="{% url 'livro:adicionar'  %}">Adicionar</a>
-        </td>
-        <td>
-            <a class="btn btn-info" href="{% url 'livro:livro_update' livro.pk %}">Alterar</a>
-        </td>
 
-        <td>
-            <a class="btn btn-info" href="{% url 'livro:livros_confirm_delete' livro.pk %}">Excluir</a>
-        </td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="{% url 'livro:livro_update' livro.pk %}">Alterar</a>
+                                </td>
 
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" href="{% url 'livro:livros_confirm_delete' livro.pk %}">Excluir</a>
+                                </td>
+
+                                {% endfor %}
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+</body>
+
+
+{% endblock %}

@@ -4,11 +4,14 @@ from .models import Livro
 from .forms import LivrosModelForm
 from django.urls import reverse_lazy
 
+
 class adicionar_create(CreateView):
     template_name = "livro/adicionar_create.html"
     model = Livro
     form_class = LivrosModelForm
     success_url = reverse_lazy('livro:livros_list')
+    success_message = "Livro cadastrado com sucesso!!"
+
 
 class livros_list(ListView):
     template_name = "livro/livros_list.html"
@@ -19,11 +22,14 @@ class livros_confirm_delete(DeleteView):
     model = Livro
     template_name = 'livro/livros_confirm_delete.html'
     success_url = reverse_lazy('livro:livros_list')
+    success_message = "Livro deletado com sucesso!!"
+
 
 class livro_update(UpdateView):
     template_name = "livro/livro_update.html"
     model = Livro
     fields = '__all__'
     success_url = reverse_lazy('livro:livros_list')
+    success_message = "Livro alterado com sucesso!!"
 
 

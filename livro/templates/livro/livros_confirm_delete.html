@@ -1,7 +1,9 @@
+{% extends 'base.html' %}
+{% block conteudo %}
 {% load crispy_forms_tags %}
 
 <form method="post" action="">
-    <p>Deseja excluir o registro: {{ object }} ?</p>
+    <p>Deseja excluir o livro: {{ object }} ?</p>
 
     {% csrf_token %}
     {{ form|crispy }}
@@ -9,3 +11,5 @@
     <button type="submit" class="btn btn-danger">Excluir</button>
 
 </form>
+
+{% endblock %}
